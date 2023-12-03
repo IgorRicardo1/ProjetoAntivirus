@@ -20,10 +20,7 @@ public class Main {
         BuscadorDeArquivos buscador = new BuscadorDeArquivos();
 
         // Chama o método de busca
-        buscador.procurarArquivos(new File(diretorioInicial), alvo);
-        buscador.procurarArquivos(new File(diretorioInicial), alvo2);
-        buscador.procurarArquivos(new File(diretorioInicial), alvo3);
-        buscador.procurarArquivos(new File(diretorioInicial), alvo4);
+        buscador.procurarArquivos(new File(diretorioInicial), alvo, alvo2, alvo3, alvo4);
         // como ele ta fazendo um a um a busca ta meio demorado, da pra alterar o metodo colocando
         // 4 entradas e verificando se é alguma delas
     }
