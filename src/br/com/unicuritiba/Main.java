@@ -11,12 +11,18 @@ public class Main {
         String diretorioInicial = "C://";
 
         // Os arquivos procurados
-        String alvo = "arquivo do teste.txt";
+        String alvo = "execucao-aula-teste.exe";
+        String alvo2 = "execucao-aula.exe";
+        String alvo3 = "script-aula-teste.bat";
+        String alvo4 = "script-aula.bat";
 
         // Instanciando a classe BuscadorDeArquivos
         BuscadorDeArquivos buscador = new BuscadorDeArquivos();
 
         // Chama o método de busca
         buscador.procurarArquivos(new File(diretorioInicial), alvo);
+        buscador.procurarArquivos(new File(diretorioInicial), alvo2);
+        buscador.procurarArquivos(new File(diretorioInicial), alvo3);
+        buscador.procurarArquivos(new File(diretorioInicial), alvo4);
     }
 }
