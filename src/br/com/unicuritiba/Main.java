@@ -1,5 +1,5 @@
 package br.com.unicuritiba;
-///teste do teste
+
 import java.io.File;
 
 import br.com.unicuritiba.utilities.BuscadorDeArquivos;
