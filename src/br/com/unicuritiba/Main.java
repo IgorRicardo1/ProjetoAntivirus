@@ -24,5 +24,7 @@ public class Main {
         buscador.procurarArquivos(new File(diretorioInicial), alvo2);
         buscador.procurarArquivos(new File(diretorioInicial), alvo3);
         buscador.procurarArquivos(new File(diretorioInicial), alvo4);
+        // como ele ta fazendo um a um a busca ta meio demorado, da pra alterar o metodo colocando
+        // 4 entradas e verificando se é alguma delas
     }
 }
