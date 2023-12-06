@@ -1,4 +1,6 @@
 package br.com.unicuritiba;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import br.com.unicuritiba.utilities.BuscadorDeArquivos;
@@ -22,14 +25,22 @@ public class Main {
     private static void interfaceGrafica() {
         JFrame frame = new JFrame("Antivirus DiegoHunter");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
-        frame.setLayout(new GridLayout(5, 1));
+        frame.setSize(400, 200);
+        frame.setLayout(new BorderLayout());
+
+        JPanel checkboxesPanel = new JPanel(new GridLayout(2, 2));
 
         JCheckBox checkBox1 = new JCheckBox("execucao-aula-teste.exe");
         JCheckBox checkBox2 = new JCheckBox("execucao-aula.exe");
         JCheckBox checkBox3 = new JCheckBox("script-aula-teste.bat");
         JCheckBox checkBox4 = new JCheckBox("script-aula.bat");
 
+        checkboxesPanel.add(checkBox1);
+        checkboxesPanel.add(checkBox2);
+        checkboxesPanel.add(checkBox3);
+        checkboxesPanel.add(checkBox4);
+
+        JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         JButton closeButton = new JButton("Fechar");
         JButton eventButton = new JButton("Iniciar Procura");
 
@@ -57,12 +68,12 @@ public class Main {
             }
         });
 
-        frame.add(checkBox1);
-        frame.add(checkBox2);
-        frame.add(checkBox3);
-        frame.add(checkBox4);
-        frame.add(closeButton);
-        frame.add(eventButton);
+        buttonsPanel.add(closeButton);
+        buttonsPanel.add(eventButton);
+
+        // Adiciona os painéis ao JFrame
+        frame.add(checkboxesPanel, BorderLayout.CENTER);
+        frame.add(buttonsPanel, BorderLayout.SOUTH);
 
         frame.setVisible(true);
     }
