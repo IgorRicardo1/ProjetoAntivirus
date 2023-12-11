@@ -5,6 +5,9 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -56,8 +59,29 @@ public class Main {
         eventButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
-                JOptionPane.showMessageDialog(frame, buscador.procurarArquivos(new File(diretorioInicial), alvos));
+                // Obter os alvos selecionados
+                List<String> alvosSelecionados = new ArrayList<>();
+                if (checkBox1.isSelected()) {
+                    alvosSelecionados.add("execucao-aula-teste.exe");
+                }
+                if (checkBox2.isSelected()) {
+                    alvosSelecionados.add("execucao-aula.exe");
+                }
+                if (checkBox3.isSelected()) {
+                    alvosSelecionados.add("script-aula-teste.bat");
+                }
+                if (checkBox4.isSelected()) {
+                    alvosSelecionados.add("script-aula.bat");
+                }
+
+                // Verificar se pelo menos um alvo foi selecionado
+                if (alvosSelecionados.isEmpty()) {
+                    JOptionPane.showMessageDialog(frame, "Selecione pelo menos um item para buscar.");
+                    return;
+                }
+
+                // Chamar o método de busca apenas para os alvos selecionados
+                JOptionPane.showMessageDialog(frame, buscador.procurarArquivos(new File(diretorioInicial), alvosSelecionados.toArray(new String[0])));
             }
         });
 
